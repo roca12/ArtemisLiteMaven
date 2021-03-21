@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+    <h:body>
+        <ui:composition template="/template/template.xhtml">
+            <ui:define name="title">Administración</ui:define>
+            <ui:define name="top"></ui:define>
+            <ui:define name="content">
+                <h2 class="mt-20 mb-30 small"><i class="fas fa-"></i> Administrar tablas</h2>
+                <section class="feature_44 bg-light pt-30 pb-50 text-center text-md-left">
+                    <div class="container px-xl-0">
+                        <div class="row align-items-center align-items-lg-start">
+                            <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                <div class="f-22 color-heading text-adaptive">
+                                    <center>
+                                        <h:link outcome="/admin/feed/List" value="Mostrar la tabla Feed"/>
+                                        <br />
+                                        <h:link outcome="/admin/juecesonline/List" value="Mostrar la tabla Juecesonline"/>
+                                        <br />
+                                        <h:link outcome="/admin/lenguajes/List" value="Mostrar la tabla Lenguajes "/>
+                                        <br />
+                                        <h:link outcome="/admin/rangos/List" value="Mostrar la tabla Rangos"/>
+                                        <br />
+                                        <h:link outcome="/admin/temario/List" value="Mostrar la tabla Temario"/>
+                                        <br />
+                                        <h:link outcome="/admin/universidades/List" value="Mostrar la tabla Universidades"/>
+                                        <br />
+                                        <h:link outcome="/admin/usuarios/List" value="Mostrar la tabla Usuarios"/>
+                                        <br />
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                <div class="f-22 color-heading text-adaptive">
+                                    <center>
+                                        <h:link outcome="/admin/auditoriaAcceso/List" value="Mostrar la tabla AuditoriaAcceso"/>
+                                        <br />
+                                        <h:link outcome="/admin/certEstadisticas/List" value="Mostrar la tabla CertEstadisticas"/>
+                                        <br />
+                                        <h:link outcome="/admin/certInscripcion/List" value="Mostrar la tabla CertInscripcion"/>
+                                        <br />
+                                        <h:link outcome="/admin/comentarios/List" value="Mostrar la tabla Comentarios"/>
+                                        <br />
+                                        <h:link outcome="/admin/ejercicios/List" value="Mostrar la tabla Ejercicios"/>
+                                        <br />
+                                        <h:link outcome="/admin/enviosuva/List" value="Mostrar la tabla Enviosuva"/>
+                                        <br />
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+
+</html>

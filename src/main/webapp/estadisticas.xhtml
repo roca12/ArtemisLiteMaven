@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+    <h:body>
+        <ui:composition template="/template/template.xhtml">
+            <ui:define name="title">Estadisticas</ui:define>
+            <ui:define name="top"></ui:define>
+            <ui:define name="content">
+                <f:metadata>
+                    <f:viewParam name="stats" value="#{aPIsLoadBean.aux}" />
+                    <f:viewAction action="#{aPIsLoadBean.onload()}" /> 
+                </f:metadata>
+
+                <p:tabView>
+                    <p:tab title="Online Judge (UVa)">
+                        <section class="feature_44 bg-light pt-30 text-center text-md-left">
+                            <div class="container px-xl-0">
+                                <div class="row align-items-center align-items-lg-start">
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <h2 class="mt-20 mb-30 small"><i class="fas fa-file-import"></i> Estadisticas Online Judge</h2>
+                                        <div class="f-22 color-heading text-adaptive">
+                                            <center>
+                                                <p:panelGrid class="tablaestadisticas" columns="2" rendered="#{not empty aPIsLoadBean.aux}" columnClasses="label,value" 
+                                                             >
+                                                    <h:outputText  class="labeltablaestadisticas" value="Username" />
+                                                    <h:outputText  class="valortablaestadisticas" value="#{aPIsLoadBean.name}" />
+
+                                                    <h:outputText  class="labeltablaestadisticas" value="Envios" />
+                                                    <h:outputText  class="valortablaestadisticas" value="#{aPIsLoadBean.submissions}" />
+
+                                                    <h:outputText  class="labeltablaestadisticas" value="Problemas solucionados" />
+                                                    <h:outputText  class="valortablaestadisticas" value="#{aPIsLoadBean.numberDone}" />
+
+                                                    <h:outputText  class="labeltablaestadisticas" value="Problemas intentados:" />
+                                                    <h:outputText  class="valortablaestadisticas" value="#{aPIsLoadBean.numberTried}" />
+
+                                                </p:panelGrid>
+
+                                            </center>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <div class="f-22 color-heading text-adaptive">
+                                            <center>
+                                                <h2><i class="fas fa-gavel"></i> Veredictos de envios</h2>
+                                                <h:form>
+                                                    <p:donutChart model="#{aPIsLoadBean.donutModel}" />
+                                                </h:form>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="feature_44 bg-light pt-10 pb-50 text-center text-md-left">
+                            <div class="container px-xl-0">
+                                <div class="row align-items-center align-items-lg-start">
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <h2 class="mt-20 mb-30 small"><i class="far fa-check-square"></i> Problemas solucionados </h2>
+                                        <div style="overflow-y: auto; height:400px;">
+                                            <div class="f-22 color-heading text-adaptive">
+                                                <p:repeat value="#{aPIsLoadBean.problemslist}" var="correct">                                 
+                                                    <h:outputText value="#{correct.num} ->" />
+                                                    <a  href="#{correct.URL}">#{correct.title}</a>
+                                                    <br/>  
+                                                </p:repeat>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <div class="f-22 color-heading text-adaptive">
+                                            <center>
+                                                <h2><i class="fas fa-code"></i> Envíos por lenguaje</h2>
+                                                <h:form>
+                                                    <p:donutChart model="#{aPIsLoadBean.donutModel2}" />
+                                                </h:form>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </p:tab>
+                    <p:tab title="Codechef">
+                        <section class="feature_44 bg-light pt-30 text-center text-md-left">
+                            <div class="container px-xl-0">
+                                <div class="row align-items-center align-items-lg-start">
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <h2 class="mt-20 mb-30 small"><i class="fas fa-file-import"></i> Estadisticas CodeChef</h2>
+                                        <div class="f-22 color-heading text-adaptive">
+                                            <center>
+                                                <p:panelGrid  class="tablaestadisticas" columns="2" rendered="#{not empty aPIsLoadBean.codechef}" columnClasses="label,value" >
+
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Nombre" />
+                                                    <h:outputText value="#{aPIsLoadBean.codechef.user_details.name}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Institución" />
+                                                    <h:outputText value="#{aPIsLoadBean.codechef.user_details.institution}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Problemas solucionados" />
+                                                    <h:outputText value="#{aPIsLoadBean.codechef.fully_solved.count}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Problemas parcialmente resueltos" />
+                                                    <h:outputText value="#{aPIsLoadBean.codechef.partially_solved.count}" />
+
+                                                </p:panelGrid>
+
+                                            </center>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <div class="f-22 color-heading text-adaptive">
+
+                                            <center>
+                                                <h2><i class="fas fa-gavel"></i> Ranking</h2>
+                                                <br></br>
+                                                <p:panelGrid   class="tablaestadisticas" columns="2" rendered="#{not empty aPIsLoadBean.codechef}" columnClasses="label,value" >
+
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Rating" />
+                                                    <h:outputText value="#{aPIsLoadBean.codechef.rating}" ></h:outputText>
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Ranking global" />
+                                                    <h:outputText value="#{aPIsLoadBean.codechef.global_rank}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Ranking nacional" />
+                                                    <h:outputText value="#{aPIsLoadBean.codechef.country_rank}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Participaciones en competencias" />
+                                                    <h:outputText value="#{aPIsLoadBean.codechef.contest_ratings.size()}" />
+
+                                                </p:panelGrid>
+
+                                            </center>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="feature_44 bg-light pt-10 pb-50 text-center text-md-left">
+                            <div class="container px-xl-0">
+                                <div class="row align-items-center align-items-lg-start">
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <h2 class="mt-20 mb-30 small"><i class="far fa-check-square"></i> Problemas solucionados por completo </h2>
+                                        <div style="overflow-y: auto; height:400px;">
+                                            <div class="f-22 color-heading text-adaptive">
+                                                <p:repeat value="#{aPIsLoadBean.codechef.fully_solved.practice}" var="p">                                 
+                                                    <h:outputText value="#{p.name} ->" />
+                                                    <a  href="#{p.link}">#{p.link}</a>
+                                                    <br/>  
+                                                </p:repeat>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+
+                                        <h2 class="mt-20 mb-30 small"><i class="far fa-times-circle"></i> Problemas parcialmente resueltos </h2>
+                                        <div style="overflow-y: auto; height:400px;">
+                                            <div class="f-22 color-heading text-adaptive">
+                                                <p:repeat value="#{aPIsLoadBean.codechef.partially_solved.practice}" var="p">   
+
+                                                    <h:outputText value="#{p.name} ->" />
+                                                    <a  href="#{p.link}">#{p.link}</a>
+                                                    <br/>  
+
+                                                </p:repeat>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </p:tab>
+                    <p:tab title="SPOJ">
+                        <section class="feature_44 bg-light pt-30 text-center text-md-left">
+                            <div class="container px-xl-0">
+                                <div class="row align-items-center align-items-lg-start">
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <h2 class="mt-20 mb-30 small"><i class="fas fa-file-import"></i> Estadisticas Sphere Online Judge</h2>
+                                        <div class="f-22 color-heading text-adaptive">
+                                            <center>
+                                                <p:panelGrid class="tablaestadisticas" columns="2" rendered="#{not empty aPIsLoadBean.spojUserStats}" columnClasses="label,value" >
+
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Username" />
+                                                    <h:outputText value="#{aPIsLoadBean.spojUserStats.username}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Institución" />
+                                                    <h:outputText value="#{aPIsLoadBean.spojUserStats.institute}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Problemas solucionados" />
+                                                    <h:outputText value="#{aPIsLoadBean.spojUserStats.solved.size()}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Problemas parcialmente resueltos" />
+                                                    <h:outputText value="#{aPIsLoadBean.spojUserStats.todo.size()}" />
+
+                                                </p:panelGrid>
+
+                                            </center>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <div class="f-22 color-heading text-adaptive">
+
+                                            <center>
+                                                <h2><i class="fas fa-gavel"></i> Información adicional</h2>
+                                                <br></br>
+                                                <p:panelGrid class="tablaestadisticas" columns="2" rendered="#{not empty aPIsLoadBean.spojUserStats}" columnClasses="label,value" >
+
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Cuenta creada en:" />
+                                                    <h:outputText value="#{aPIsLoadBean.spojUserStats.joindata}" ></h:outputText>
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Ranking global" />
+                                                    <h:outputText value="#{aPIsLoadBean.spojUserStats.rank}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Puntuación" />
+                                                    <h:outputText value="#{aPIsLoadBean.spojUserStats.points}" />
+
+
+
+                                                </p:panelGrid>
+
+                                            </center>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="feature_44 bg-light pt-10 pb-50 text-center text-md-left">
+                            <div class="container px-xl-0">
+                                <div class="row align-items-center align-items-lg-start">
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <h2 class="mt-20 mb-30 small"><i class="far fa-check-square"></i> Problemas solucionados por completo </h2>
+                                        <div style="overflow-y: auto; height:400px;">
+                                            <div class="f-22 color-heading text-adaptive">
+                                                <p:repeat value="#{aPIsLoadBean.spojUserStats.solved}" var="p">                                 
+                                                    <h:outputText value="#{p} ->" />
+                                                    <a  href="https://www.spoj.com/problems/TEST/#{p}">https://www.spoj.com/problems/TEST/#{p}</a>
+                                                    <br/>  
+                                                </p:repeat>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+
+                                        <h2 class="mt-20 mb-30 small"><i class="far fa-times-circle"></i> Problemas intentados </h2>
+                                        <div style="overflow-y: auto; height:400px;">
+                                            <div class="f-22 color-heading text-adaptive">
+                                                <p:repeat value="#{aPIsLoadBean.spojUserStats.todo}" var="p">                                 
+                                                    <h:outputText value="#{p} ->" />
+                                                    <a  href="https://www.spoj.com/problems/TEST/#{p}">https://www.spoj.com/problems/TEST/#{p}</a>
+                                                    <br/>  
+                                                </p:repeat>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </p:tab>
+                    <p:tab title="Codeforces">
+                        <section class="feature_44 bg-light pt-30 text-center text-md-left">
+                            <div class="container px-xl-0">
+                                <div class="row align-items-center align-items-lg-start">
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <h2 class="mt-20 mb-30 small"><i class="fas fa-file-import"></i> Estadisticas CodeForces</h2>
+                                        <div class="f-22 color-heading text-adaptive">
+                                            <center>
+                                                <p:panelGrid class="tablaestadisticas" columns="2" rendered="#{not empty aPIsLoadBean.p}" columnClasses="label,value" >
+
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Nombre" />
+                                                    <h:outputText value="#{aPIsLoadBean.uir.firstName} #{aPIsLoadBean.uir.lastName}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Pais y ciudad" />
+                                                    <h:outputText value="#{aPIsLoadBean.uir.country} #{aPIsLoadBean.uir.city}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Organización" />
+                                                    <h:outputText value="#{aPIsLoadBean.uir.organization}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Rango actual" />
+                                                    <h:outputText value="#{aPIsLoadBean.uir.rank}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Maximo rango conseguido" />
+                                                    <h:outputText value="#{aPIsLoadBean.uir.maxRank}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Rating" />
+                                                    <h:outputText value="#{aPIsLoadBean.uir.rating}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Problemas solucionados" />
+                                                    <h:outputText value="#{aPIsLoadBean.acceptedcf}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Envios totales" />
+                                                    <h:outputText value="#{aPIsLoadBean.result.size()}" />
+
+                                                </p:panelGrid>
+
+                                            </center>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <div class="f-22 color-heading text-adaptive">
+
+                                            <center>
+                                                <h2><i class="fas fa-gavel"></i> Información adicional</h2>
+                                                <br></br>
+                                                <p:panelGrid class="tablaestadisticas" columns="2" rendered="#{not empty aPIsLoadBean.spojUserStats}" columnClasses="label,value" >
+
+
+
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Contribuciones" />
+                                                    <h:outputText value="#{aPIsLoadBean.uir.contribution}" />
+
+                                                    <h:outputText class="labeltablaestadisticas" value="Avatar" />
+                                                    <img src="#{aPIsLoadBean.uir.avatar}" />
+
+
+
+
+                                                </p:panelGrid>
+
+                                            </center>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="feature_44 bg-light pt-10 pb-50 text-center text-md-left">
+                            <div class="container px-xl-0">
+                                <div class="row align-items-center align-items-lg-start">
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <h2 class="mt-20 mb-30 small"><i class="far fa-check-square"></i> Problemas solucionados </h2>
+                                        <div style="overflow-y: auto; height:400px;">
+                                            <div class="f-22 color-heading text-adaptive">
+                                                <p:repeat value="#{aPIsLoadBean.reslist}" var="c" >   
+                                                    <ui:fragment rendered="#{c.name ne null}">
+                                                        <h:outputText value="#{c.name} ->" />
+                                                        <a href="https://codeforces.com/problemset/problem/#{c.id}/#{c.index}">#{c.id}#{c.index}</a>
+                                                        <br/>  
+                                                    </ui:fragment>
+                                                </p:repeat> 
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                                        <div class="f-22 color-heading text-adaptive">
+                                            <center>
+                                                <h2><i class="fas fa-code"></i> Envíos por lenguaje</h2>
+                                                <h:form>
+                                                    <p:barChart model="#{aPIsLoadBean.barModel}"  style="height: 800px;"/>
+
+                                                </h:form>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </p:tab>
+                </p:tabView>
+
+
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta charset="utf-8" />
+        <title><ui:insert name="title"></ui:insert></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Dosis:100,200,300,400,600,500,700,800,900|Open+Sans:100,200,300,400,500,600,700,800,900&amp;subset=latin" rel="stylesheet"/>
+        <!-- Bootstrap 4.3.1 CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  crossorigin="anonymous"/>
+        <!-- Slick 1.8.1 jQuery plugin CSS (Sliders) -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <!-- Fancybox 3 jQuery plugin CSS (Open images and video in popup) -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+        <!-- AOS 2.3.1 jQuery plugin CSS (Animations) -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+        <!-- FontAwesome CSS -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"  crossorigin="anonymous"/>
+        <!-- Startup 3 CSS (Styles for all blocks) -->
+        <link href="css/style.css" rel="stylesheet" />
+        <!-- jQuery 3.3.1 -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    </h:head>
+
+    <h:body>
+        <div id="top" class="top">
+            <ui:insert name="top"></ui:insert>
+            <nav class="navigation_18 bg-dark pt-30 pb-30 lh-40 text-center">
+                <div class="container px-xl-0">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-lg-auto text-lg-left" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                            <a href="index.xhtml" class="logo link color-white"><i class="fas fa-code"></i> Sistema Artemis</a>
+                        </div>
+                        <div class="col-lg-9 text-lg-right" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+                            <a href="admin.xhtml" class="logo link color-white mr-15"><i class="fas fa-users-cog"></i> Administración</a>
+                            <a href="biblioteca.xhtml" class="logo link color-white mr-15"><i class="fas fa-journal-whills"></i> Biblioteca</a>
+                            <a href="estadisticas.xhtml" class="logo link color-white mr-15"><i class="fas fa-journal-whills"></i> Estadisticas</a>
+                            <a href="#" class="logo link color-white mr-15"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div>
+            <ui:insert name="content"/>
+        </div>
+        <div id="bottom" class="bottom">
+            <footer class="footer_11 bg-dark pt-45 pb-45 color-white text-center">
+                <div class="container px-xl-0">
+                    <div class="row align-items-center">
+                        <div class="mb-20 mb-lg-0 col-lg-3" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                            <a href="#" class="logo link color-white"><i class="fas fa-code"></i> Sistema Artemis</a>
+                        </div>
+                        <div class="col-lg-9 text-lg-right" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+                            <a href="#" class="link color-white mr-10"><i class="fas fa-hands-helping"/> Ayuda</a>
+                            <a href="#" class="link color-white mx-10"><i class="fas fa-info"/> Acerca de Artemis</a>
+                            <a href="#" class="link color-white mr-10"><i class="fas fa-mail-bulk"/> Enviar Comentario</a>
+                            <a href="#" class="link color-white mx-10"><i class="fab fa-twitter"/> Twitter</a>
+                            <a href="#" class="link color-white mx-10"><i class="fab fa-facebook-f"/> Facebook</a>
+
+                        </div>
+                    </div>
+                    <div data-aos-duration="600" data-aos="fade-down" data-aos-delay="600"> 
+                        <div class="mt-45 mb-45 hr h-2 bg-white op-3"></div>
+                    </div>
+                    <div class="row">
+
+                        <div class="mb-20 mb-lg-0 col-lg-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+                            Otras paginas relacionadas    <i class="fas fa-chevron-right"/>
+                            <a href="#" class="link color-white mr-15"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="link color-white mr-15"><i class="fas fa-gavel"></i> Online Judge</a>
+                            <a href="#" class="link color-white mr-15"><i class="fas fa-journal-whills"></i> CodeChef</a>
+                        </div>
+                        <div class="col-lg-5 text-lg-right" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+                            <div class="text-adaptive">
+                                Programado por: Diego Rodriguez <i class="fab fa-linux"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+            <!-- Bootstrap 4.3.1 JS -->
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+            <!-- Fancybox 3 jQuery plugin JS (Open images and video in popup) -->
+            <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+            <!-- Slick 1.8.1 jQuery plugin JS (Sliders) -->
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+            <!-- AOS 2.3.1 jQuery plugin JS (Animations) -->
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <!-- Maskedinput jQuery plugin JS (Masks for input fields) -->
+            <script src="js/jquery.maskedinput.min.js"></script>
+            <!-- Startup 3 JS (Custom js for all blocks) -->
+            <script src="js/script.js"></script>
+        </div>
+    </h:body>
+</html>
