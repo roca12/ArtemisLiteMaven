@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CertEstadisticasEditDlg" widgetVar="CertEstadisticasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCertEstadisticasTitle}">
+            <h:form id="CertEstadisticasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{certEstadisticasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCertEstadisticasLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{certEstadisticasController.selected.id}" title="#{bundle.EditCertEstadisticasTitle_id}" required="true" requiredMessage="#{bundle.EditCertEstadisticasRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditCertEstadisticasLabel_ejerciciosCorrectos}" for="ejerciciosCorrectos" />
+                        <p:inputText id="ejerciciosCorrectos" value="#{certEstadisticasController.selected.ejerciciosCorrectos}" title="#{bundle.EditCertEstadisticasTitle_ejerciciosCorrectos}" />
+                        <p:outputLabel value="#{bundle.EditCertEstadisticasLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{certEstadisticasController.selected.nombres}" title="#{bundle.EditCertEstadisticasTitle_nombres}" />
+                        <p:outputLabel value="#{bundle.EditCertEstadisticasLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{certEstadisticasController.selected.apellidos}" title="#{bundle.EditCertEstadisticasTitle_apellidos}" />
+                        <p:outputLabel value="#{bundle.EditCertEstadisticasLabel_fecha}" for="fecha" />
+                        <p:inputText id="fecha" value="#{certEstadisticasController.selected.fecha}" title="#{bundle.EditCertEstadisticasTitle_fecha}" />
+                        <p:outputLabel value="#{bundle.EditCertEstadisticasLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{certEstadisticasController.selected.fechaCreacion}" title="#{bundle.EditCertEstadisticasTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCertEstadisticasLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{certEstadisticasController.selected.fechaModificacion}" title="#{bundle.EditCertEstadisticasTitle_fechaModificacion}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{certEstadisticasController.update}" value="#{bundle.Save}" update="display,:CertEstadisticasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CertEstadisticasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CertEstadisticasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
