@@ -1,4 +1,4 @@
-package com.artemispocket.jsfclases;
+package com.artemispocket.beans;
 
 import com.artemispocket.ApiConn.SPOJAPI;
 import com.artemispocket.ApiConn.CodeChefAPI;
