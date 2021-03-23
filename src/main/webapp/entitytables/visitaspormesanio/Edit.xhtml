@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VisitaspormesanioEditDlg" widgetVar="VisitaspormesanioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditVisitaspormesanioTitle}">
+            <h:form id="VisitaspormesanioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{visitaspormesanioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{visitaspormesanioController.selected.id}" title="#{bundle.EditVisitaspormesanioTitle_id}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_anio}" for="anio" />
+                        <p:inputText id="anio" value="#{visitaspormesanioController.selected.anio}" title="#{bundle.EditVisitaspormesanioTitle_anio}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_anio}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_enero}" for="enero" />
+                        <p:inputText id="enero" value="#{visitaspormesanioController.selected.enero}" title="#{bundle.EditVisitaspormesanioTitle_enero}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_enero}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_febrero}" for="febrero" />
+                        <p:inputText id="febrero" value="#{visitaspormesanioController.selected.febrero}" title="#{bundle.EditVisitaspormesanioTitle_febrero}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_febrero}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_marzo}" for="marzo" />
+                        <p:inputText id="marzo" value="#{visitaspormesanioController.selected.marzo}" title="#{bundle.EditVisitaspormesanioTitle_marzo}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_marzo}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_abril}" for="abril" />
+                        <p:inputText id="abril" value="#{visitaspormesanioController.selected.abril}" title="#{bundle.EditVisitaspormesanioTitle_abril}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_abril}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_mayo}" for="mayo" />
+                        <p:inputText id="mayo" value="#{visitaspormesanioController.selected.mayo}" title="#{bundle.EditVisitaspormesanioTitle_mayo}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_mayo}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_junio}" for="junio" />
+                        <p:inputText id="junio" value="#{visitaspormesanioController.selected.junio}" title="#{bundle.EditVisitaspormesanioTitle_junio}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_junio}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_julio}" for="julio" />
+                        <p:inputText id="julio" value="#{visitaspormesanioController.selected.julio}" title="#{bundle.EditVisitaspormesanioTitle_julio}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_julio}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_agosto}" for="agosto" />
+                        <p:inputText id="agosto" value="#{visitaspormesanioController.selected.agosto}" title="#{bundle.EditVisitaspormesanioTitle_agosto}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_agosto}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_septiembre}" for="septiembre" />
+                        <p:inputText id="septiembre" value="#{visitaspormesanioController.selected.septiembre}" title="#{bundle.EditVisitaspormesanioTitle_septiembre}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_septiembre}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_octubre}" for="octubre" />
+                        <p:inputText id="octubre" value="#{visitaspormesanioController.selected.octubre}" title="#{bundle.EditVisitaspormesanioTitle_octubre}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_octubre}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_noviembre}" for="noviembre" />
+                        <p:inputText id="noviembre" value="#{visitaspormesanioController.selected.noviembre}" title="#{bundle.EditVisitaspormesanioTitle_noviembre}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_noviembre}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_diciembre}" for="diciembre" />
+                        <p:inputText id="diciembre" value="#{visitaspormesanioController.selected.diciembre}" title="#{bundle.EditVisitaspormesanioTitle_diciembre}" required="true" requiredMessage="#{bundle.EditVisitaspormesanioRequiredMessage_diciembre}"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{visitaspormesanioController.selected.fechaCreacion}" title="#{bundle.EditVisitaspormesanioTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditVisitaspormesanioLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{visitaspormesanioController.selected.fechaModificacion}" title="#{bundle.EditVisitaspormesanioTitle_fechaModificacion}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{visitaspormesanioController.update}" value="#{bundle.Save}" update="display,:VisitaspormesanioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VisitaspormesanioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VisitaspormesanioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

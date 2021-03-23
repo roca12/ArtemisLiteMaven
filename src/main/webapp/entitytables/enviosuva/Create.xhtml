@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EnviosuvaCreateDlg" widgetVar="EnviosuvaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEnviosuvaTitle}">
+            <h:form id="EnviosuvaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{enviosuvaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateEnviosuvaLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{enviosuvaController.selected.id}" title="#{bundle.CreateEnviosuvaTitle_id}" required="true" requiredMessage="#{bundle.CreateEnviosuvaRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateEnviosuvaLabel_ejercicio}" for="ejercicio" />
+                        <p:inputText id="ejercicio" value="#{enviosuvaController.selected.ejercicio}" title="#{bundle.CreateEnviosuvaTitle_ejercicio}" />
+                        <p:outputLabel value="#{bundle.CreateEnviosuvaLabel_codigo}" for="codigo" />
+                        <p:inputTextarea rows="4" cols="30" id="codigo" value="#{enviosuvaController.selected.codigo}" title="#{bundle.CreateEnviosuvaTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.CreateEnviosuvaLabel_submissionid}" for="submissionid" />
+                        <p:inputText id="submissionid" value="#{enviosuvaController.selected.submissionid}" title="#{bundle.CreateEnviosuvaTitle_submissionid}" />
+                        <p:outputLabel value="#{bundle.CreateEnviosuvaLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{enviosuvaController.selected.fechaCreacion}" title="#{bundle.EditEnviosuvaTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEnviosuvaLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{enviosuvaController.selected.fechaModificacion}" title="#{bundle.EditEnviosuvaTitle_fechaModificacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEnviosuvaLabel_lenguajes}" for="lenguajes" />
+                        <p:selectOneMenu id="lenguajes" value="#{enviosuvaController.selected.lenguajes}" >
+                            <f:selectItems value="#{lenguajesController.itemsAvailableSelectOne}"
+                                           var="lenguajesItem"
+                                           itemValue="#{lenguajesItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEnviosuvaLabel_usuarios}" for="usuarios" />
+                        <p:selectOneMenu id="usuarios" value="#{enviosuvaController.selected.usuarios}" >
+                            <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"
+                                           var="usuariosItem"
+                                           itemValue="#{usuariosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{enviosuvaController.create}" value="#{bundle.Save}" update="display,:EnviosuvaListForm:datalist,:growl" oncomplete="handleSubmit(args,'EnviosuvaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EnviosuvaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

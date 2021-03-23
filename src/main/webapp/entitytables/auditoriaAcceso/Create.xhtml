@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AuditoriaAccesoCreateDlg" widgetVar="AuditoriaAccesoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAuditoriaAccesoTitle}">
+            <h:form id="AuditoriaAccesoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{auditoriaAccesoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateAuditoriaAccesoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{auditoriaAccesoController.selected.id}" title="#{bundle.CreateAuditoriaAccesoTitle_id}" required="true" requiredMessage="#{bundle.CreateAuditoriaAccesoRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateAuditoriaAccesoLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{auditoriaAccesoController.selected.fecha}" title="#{bundle.EditAuditoriaAccesoTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateAuditoriaAccesoLabel_ip}" for="ip" />
+                        <p:inputText id="ip" value="#{auditoriaAccesoController.selected.ip}" title="#{bundle.CreateAuditoriaAccesoTitle_ip}" />
+                        <p:outputLabel value="#{bundle.CreateAuditoriaAccesoLabel_correcto}" for="correcto" />
+                        <p:inputText id="correcto" value="#{auditoriaAccesoController.selected.correcto}" title="#{bundle.CreateAuditoriaAccesoTitle_correcto}" />
+                        <p:outputLabel value="#{bundle.CreateAuditoriaAccesoLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{auditoriaAccesoController.selected.fechaCreacion}" title="#{bundle.EditAuditoriaAccesoTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateAuditoriaAccesoLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{auditoriaAccesoController.selected.fechaModificacion}" title="#{bundle.EditAuditoriaAccesoTitle_fechaModificacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateAuditoriaAccesoLabel_usuarios}" for="usuarios" />
+                        <p:selectOneMenu id="usuarios" value="#{auditoriaAccesoController.selected.usuarios}" >
+                            <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"
+                                           var="usuariosItem"
+                                           itemValue="#{usuariosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{auditoriaAccesoController.create}" value="#{bundle.Save}" update="display,:AuditoriaAccesoListForm:datalist,:growl" oncomplete="handleSubmit(args,'AuditoriaAccesoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AuditoriaAccesoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

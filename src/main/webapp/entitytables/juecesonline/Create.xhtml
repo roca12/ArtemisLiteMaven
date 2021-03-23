@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="JuecesonlineCreateDlg" widgetVar="JuecesonlineCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateJuecesonlineTitle}">
+            <h:form id="JuecesonlineCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{juecesonlineController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateJuecesonlineLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{juecesonlineController.selected.id}" title="#{bundle.CreateJuecesonlineTitle_id}" required="true" requiredMessage="#{bundle.CreateJuecesonlineRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateJuecesonlineLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{juecesonlineController.selected.nombre}" title="#{bundle.CreateJuecesonlineTitle_nombre}" required="true" requiredMessage="#{bundle.CreateJuecesonlineRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateJuecesonlineLabel_acronimo}" for="acronimo" />
+                        <p:inputText id="acronimo" value="#{juecesonlineController.selected.acronimo}" title="#{bundle.CreateJuecesonlineTitle_acronimo}" required="true" requiredMessage="#{bundle.CreateJuecesonlineRequiredMessage_acronimo}"/>
+                        <p:outputLabel value="#{bundle.CreateJuecesonlineLabel_urlpagina}" for="urlpagina" />
+                        <p:inputText id="urlpagina" value="#{juecesonlineController.selected.urlpagina}" title="#{bundle.CreateJuecesonlineTitle_urlpagina}" />
+                        <p:outputLabel value="#{bundle.CreateJuecesonlineLabel_urllogo}" for="urllogo" />
+                        <p:inputText id="urllogo" value="#{juecesonlineController.selected.urllogo}" title="#{bundle.CreateJuecesonlineTitle_urllogo}" />
+                        <p:outputLabel value="#{bundle.CreateJuecesonlineLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{juecesonlineController.selected.fechaCreacion}" title="#{bundle.EditJuecesonlineTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateJuecesonlineLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{juecesonlineController.selected.fechaModificacion}" title="#{bundle.EditJuecesonlineTitle_fechaModificacion}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{juecesonlineController.create}" value="#{bundle.Save}" update="display,:JuecesonlineListForm:datalist,:growl" oncomplete="handleSubmit(args,'JuecesonlineCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="JuecesonlineCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -18,6 +18,7 @@ import javax.persistence.PersistenceContext;
 public class ComentariosFacade extends AbstractFacade<Comentarios> {
 
     @PersistenceContext(unitName = "com.roca12artemis_MiniArtemisMaven_war_1.0-SNAPSHOTPU")
+
     private EntityManager em;
 
     @Override

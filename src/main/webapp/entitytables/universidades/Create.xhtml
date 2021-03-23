@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UniversidadesCreateDlg" widgetVar="UniversidadesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUniversidadesTitle}">
+            <h:form id="UniversidadesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{universidadesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateUniversidadesLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{universidadesController.selected.id}" title="#{bundle.CreateUniversidadesTitle_id}" required="true" requiredMessage="#{bundle.CreateUniversidadesRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateUniversidadesLabel_acronimo}" for="acronimo" />
+                        <p:inputText id="acronimo" value="#{universidadesController.selected.acronimo}" title="#{bundle.CreateUniversidadesTitle_acronimo}" required="true" requiredMessage="#{bundle.CreateUniversidadesRequiredMessage_acronimo}"/>
+                        <p:outputLabel value="#{bundle.CreateUniversidadesLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{universidadesController.selected.nombre}" title="#{bundle.CreateUniversidadesTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateUniversidadesLabel_logourl}" for="logourl" />
+                        <p:inputText id="logourl" value="#{universidadesController.selected.logourl}" title="#{bundle.CreateUniversidadesTitle_logourl}" />
+                        <p:outputLabel value="#{bundle.CreateUniversidadesLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{universidadesController.selected.fechaCreacion}" title="#{bundle.EditUniversidadesTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateUniversidadesLabel_fechaModificación}" for="fechaModificación" />
+                        <p:calendar id="fechaModificación" pattern="MM/dd/yyyy HH:mm:ss" value="#{universidadesController.selected.fechaModificación}" title="#{bundle.EditUniversidadesTitle_fechaModificación}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateUniversidadesLabel_ciudades}" for="ciudades" />
+                        <p:selectOneMenu id="ciudades" value="#{universidadesController.selected.ciudades}" >
+                            <f:selectItems value="#{ciudadesController.itemsAvailableSelectOne}"
+                                           var="ciudadesItem"
+                                           itemValue="#{ciudadesItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateUniversidadesLabel_paises}" for="paises" />
+                        <p:selectOneMenu id="paises" value="#{universidadesController.selected.paises}" >
+                            <f:selectItems value="#{paisesController.itemsAvailableSelectOne}"
+                                           var="paisesItem"
+                                           itemValue="#{paisesItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{universidadesController.create}" value="#{bundle.Save}" update="display,:UniversidadesListForm:datalist,:growl" oncomplete="handleSubmit(args,'UniversidadesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UniversidadesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
