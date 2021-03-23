@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TemarioViewDlg" widgetVar="TemarioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTemarioTitle}">
+            <h:form id="TemarioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{temarioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTemarioLabel_id}"/>
+                        <h:outputText value="#{temarioController.selected.id}" title="#{bundle.ViewTemarioTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewTemarioLabel_supergrupo}"/>
+                        <h:outputText value="#{temarioController.selected.supergrupo}" title="#{bundle.ViewTemarioTitle_supergrupo}"/>
+                        <h:outputText value="#{bundle.ViewTemarioLabel_tema}"/>
+                        <h:outputText value="#{temarioController.selected.tema}" title="#{bundle.ViewTemarioTitle_tema}"/>
+                        <h:outputText value="#{bundle.ViewTemarioLabel_texto}"/>
+                        <h:outputText value="#{temarioController.selected.texto}" title="#{bundle.ViewTemarioTitle_texto}"/>
+                        <h:outputText value="#{bundle.ViewTemarioLabel_complejidadTiempo}"/>
+                        <h:outputText value="#{temarioController.selected.complejidadTiempo}" title="#{bundle.ViewTemarioTitle_complejidadTiempo}"/>
+                        <h:outputText value="#{bundle.ViewTemarioLabel_java}"/>
+                        <h:outputText value="#{temarioController.selected.java}" title="#{bundle.ViewTemarioTitle_java}"/>
+                        <h:outputText value="#{bundle.ViewTemarioLabel_cpp}"/>
+                        <h:outputText value="#{temarioController.selected.cpp}" title="#{bundle.ViewTemarioTitle_cpp}"/>
+                        <h:outputText value="#{bundle.ViewTemarioLabel_py}"/>
+                        <h:outputText value="#{temarioController.selected.py}" title="#{bundle.ViewTemarioTitle_py}"/>
+                        <h:outputText value="#{bundle.ViewTemarioLabel_orden}"/>
+                        <h:outputText value="#{temarioController.selected.orden}" title="#{bundle.ViewTemarioTitle_orden}"/>
+                        <h:outputText value="#{bundle.ViewTemarioLabel_suborden}"/>
+                        <h:outputText value="#{temarioController.selected.suborden}" title="#{bundle.ViewTemarioTitle_suborden}"/>
+                        <h:outputText value="#{bundle.ViewTemarioLabel_fechaCreacion}"/>
+                        <h:outputText value="#{temarioController.selected.fechaCreacion}" title="#{bundle.ViewTemarioTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTemarioLabel_fechaModificacion}"/>
+                        <h:outputText value="#{temarioController.selected.fechaModificacion}" title="#{bundle.ViewTemarioTitle_fechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TemarioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

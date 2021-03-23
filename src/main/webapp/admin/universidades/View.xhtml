@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UniversidadesViewDlg" widgetVar="UniversidadesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUniversidadesTitle}">
+            <h:form id="UniversidadesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{universidadesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUniversidadesLabel_id}"/>
+                        <h:outputText value="#{universidadesController.selected.id}" title="#{bundle.ViewUniversidadesTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewUniversidadesLabel_acronimo}"/>
+                        <h:outputText value="#{universidadesController.selected.acronimo}" title="#{bundle.ViewUniversidadesTitle_acronimo}"/>
+                        <h:outputText value="#{bundle.ViewUniversidadesLabel_nombre}"/>
+                        <h:outputText value="#{universidadesController.selected.nombre}" title="#{bundle.ViewUniversidadesTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewUniversidadesLabel_logourl}"/>
+                        <h:outputText value="#{universidadesController.selected.logourl}" title="#{bundle.ViewUniversidadesTitle_logourl}"/>
+                        <h:outputText value="#{bundle.ViewUniversidadesLabel_fechaCreacion}"/>
+                        <h:outputText value="#{universidadesController.selected.fechaCreacion}" title="#{bundle.ViewUniversidadesTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewUniversidadesLabel_fechaModificación}"/>
+                        <h:outputText value="#{universidadesController.selected.fechaModificación}" title="#{bundle.ViewUniversidadesTitle_fechaModificación}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewUniversidadesLabel_ciudades}"/>
+                        <h:outputText value="#{universidadesController.selected.ciudades}" title="#{bundle.ViewUniversidadesTitle_ciudades}"/>
+                        <h:outputText value="#{bundle.ViewUniversidadesLabel_paises}"/>
+                        <h:outputText value="#{universidadesController.selected.paises}" title="#{bundle.ViewUniversidadesTitle_paises}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UniversidadesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

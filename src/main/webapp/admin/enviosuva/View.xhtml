@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EnviosuvaViewDlg" widgetVar="EnviosuvaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEnviosuvaTitle}">
+            <h:form id="EnviosuvaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{enviosuvaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewEnviosuvaLabel_id}"/>
+                        <h:outputText value="#{enviosuvaController.selected.id}" title="#{bundle.ViewEnviosuvaTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewEnviosuvaLabel_ejercicio}"/>
+                        <h:outputText value="#{enviosuvaController.selected.ejercicio}" title="#{bundle.ViewEnviosuvaTitle_ejercicio}"/>
+                        <h:outputText value="#{bundle.ViewEnviosuvaLabel_codigo}"/>
+                        <h:outputText value="#{enviosuvaController.selected.codigo}" title="#{bundle.ViewEnviosuvaTitle_codigo}"/>
+                        <h:outputText value="#{bundle.ViewEnviosuvaLabel_submissionid}"/>
+                        <h:outputText value="#{enviosuvaController.selected.submissionid}" title="#{bundle.ViewEnviosuvaTitle_submissionid}"/>
+                        <h:outputText value="#{bundle.ViewEnviosuvaLabel_fechaCreacion}"/>
+                        <h:outputText value="#{enviosuvaController.selected.fechaCreacion}" title="#{bundle.ViewEnviosuvaTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEnviosuvaLabel_fechaModificacion}"/>
+                        <h:outputText value="#{enviosuvaController.selected.fechaModificacion}" title="#{bundle.ViewEnviosuvaTitle_fechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEnviosuvaLabel_lenguajes}"/>
+                        <h:outputText value="#{enviosuvaController.selected.lenguajes}" title="#{bundle.ViewEnviosuvaTitle_lenguajes}"/>
+                        <h:outputText value="#{bundle.ViewEnviosuvaLabel_usuarios}"/>
+                        <h:outputText value="#{enviosuvaController.selected.usuarios}" title="#{bundle.ViewEnviosuvaTitle_usuarios}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="EnviosuvaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

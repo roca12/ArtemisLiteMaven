@@ -3,12 +3,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
 
     <h:head>
         <title><ui:insert name="title">Default Title</ui:insert></title>
         <h:outputStylesheet library="css" name="jsfcrud.css"/>
         <h:outputScript library="js" name="jsfcrud.js"/>
+
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        
+
     </h:head>
 
     <h:body>
@@ -16,30 +24,17 @@
         <p:growl id="growl" life="3000" />
 
         <p:layout fullPage="true">
-            <p:layoutUnit position="north" size="65" header="#{bundle.AppName}">
+            
+          <p:layoutUnit position="south" size="60">
+                <ui:insert name="footer"/>
+            </p:layoutUnit>
+
+
+            <p:layoutUnit position="north" size="100" collapsible="false" header="ARTEMIS LITE - Administracion de tablas">
                 <h:form id="menuForm">
-                    <p:menubar>
-                        <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
-                        <p:submenu label="#{bundle.Maintenance}">
-                            <p:menuitem value="AuditoriaAcceso" outcome="entitytables/auditoriaAcceso/List.xhtml" />
-                            <p:menuitem value="CertEstadisticas" outcome="entitytables/certEstadisticas/List.xhtml" />
-                            <p:menuitem value="CertInscripcion" outcome="entitytables/certInscripcion/List.xhtml" />
-                            <p:menuitem value="Ciudades" outcome="entitytables/ciudades/List.xhtml" />
-                            <p:menuitem value="Comentarios" outcome="entitytables/comentarios/List.xhtml" />
-                            <p:menuitem value="Ejercicios" outcome="entitytables/ejercicios/List.xhtml" />
-                            <p:menuitem value="Enviosuva" outcome="entitytables/enviosuva/List.xhtml" />
-                            <p:menuitem value="Feed" outcome="entitytables/feed/List.xhtml" />
-                            <p:menuitem value="Juecesonline" outcome="entitytables/juecesonline/List.xhtml" />
-                            <p:menuitem value="Lenguajes" outcome="entitytables/lenguajes/List.xhtml" />
-                            <p:menuitem value="Paises" outcome="entitytables/paises/List.xhtml" />
-                            <p:menuitem value="Rangos" outcome="entitytables/rangos/List.xhtml" />
-                            <p:menuitem value="Temario" outcome="entitytables/temario/List.xhtml" />
-                            <p:menuitem value="Universidades" outcome="entitytables/universidades/List.xhtml" />
-                            <p:menuitem value="Usuarios" outcome="entitytables/usuarios/List.xhtml" />
-                            <p:menuitem value="Uvaurltoid" outcome="entitytables/uvaurltoid/List.xhtml" />
-                            <p:menuitem value="Visitaspormesanio" outcome="entitytables/visitaspormesanio/List.xhtml" />
-                        </p:submenu>
-                    </p:menubar>
+                    
+                    Aqui iran los botones
+
                 </h:form>
             </p:layoutUnit>
 

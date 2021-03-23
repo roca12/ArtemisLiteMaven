@@ -4021,6 +4021,7 @@ body .ui-datatable thead th tr {
     background-image: none;
     border: 1px solid #c8c8c8;
     color: #333;
+    
 }
 
 
@@ -4121,17 +4122,20 @@ body .ui-datatable .ui-datatable-data>tr {
 
 body .ui-datatable .ui-datatable-data>tr>td {
     padding: .571em .857em;
-    border: inherit
+    border: inherit;
+        height: 100px;
 }
 
-body .ui-datatable .ui-datatable-data>tr.ui-datatable-even {
+body .ui-datatable .ui-datatable-data>tr {
     background-color: #f9f9f9
 }
+
 
 body .ui-datatable .ui-datatable-data>tr.ui-state-hover {
     border: 1px solid #c8c8c8;
     background-color: #eaeaea;
-    color: #333
+    color: #333;
+    transition: 0.5s all;
 }
 
 body .ui-datatable .ui-datatable-data>tr.ui-state-highlight {
@@ -5959,7 +5963,7 @@ body .fc td.ui-widget-content {
 }
 
 body .fc td.fc-head-container {
-    border: 1px solid #c8c8c8
+    border: 1px solid #c8c8c8;
 }
 
 body .fc .fc-event {

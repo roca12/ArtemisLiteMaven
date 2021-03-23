@@ -17,7 +17,8 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class PaisesFacade extends AbstractFacade<Paises> {
 
-    @PersistenceContext(unitName = "com.roca12artemis.MiniArtemisPU")
+    @PersistenceContext(unitName = "com.roca12artemis_MiniArtemisMaven_war_1.0-SNAPSHOTPU")
+
     private EntityManager em;
 
     @Override

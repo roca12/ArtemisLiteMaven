@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VisitaspormesanioViewDlg" widgetVar="VisitaspormesanioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVisitaspormesanioTitle}">
+            <h:form id="VisitaspormesanioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{visitaspormesanioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_id}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.id}" title="#{bundle.ViewVisitaspormesanioTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_anio}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.anio}" title="#{bundle.ViewVisitaspormesanioTitle_anio}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_enero}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.enero}" title="#{bundle.ViewVisitaspormesanioTitle_enero}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_febrero}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.febrero}" title="#{bundle.ViewVisitaspormesanioTitle_febrero}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_marzo}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.marzo}" title="#{bundle.ViewVisitaspormesanioTitle_marzo}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_abril}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.abril}" title="#{bundle.ViewVisitaspormesanioTitle_abril}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_mayo}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.mayo}" title="#{bundle.ViewVisitaspormesanioTitle_mayo}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_junio}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.junio}" title="#{bundle.ViewVisitaspormesanioTitle_junio}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_julio}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.julio}" title="#{bundle.ViewVisitaspormesanioTitle_julio}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_agosto}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.agosto}" title="#{bundle.ViewVisitaspormesanioTitle_agosto}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_septiembre}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.septiembre}" title="#{bundle.ViewVisitaspormesanioTitle_septiembre}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_octubre}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.octubre}" title="#{bundle.ViewVisitaspormesanioTitle_octubre}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_noviembre}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.noviembre}" title="#{bundle.ViewVisitaspormesanioTitle_noviembre}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_diciembre}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.diciembre}" title="#{bundle.ViewVisitaspormesanioTitle_diciembre}"/>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_fechaCreacion}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.fechaCreacion}" title="#{bundle.ViewVisitaspormesanioTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewVisitaspormesanioLabel_fechaModificacion}"/>
+                        <h:outputText value="#{visitaspormesanioController.selected.fechaModificacion}" title="#{bundle.ViewVisitaspormesanioTitle_fechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VisitaspormesanioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

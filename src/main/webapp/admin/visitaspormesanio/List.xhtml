@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListVisitaspormesanioTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="VisitaspormesanioListForm">
+                <p:panel header="#{bundle.ListVisitaspormesanioTitle}">
+                    <p:dataTable id="datalist" value="#{visitaspormesanioController.items}" var="item"
+                                 selectionMode="single" selection="#{visitaspormesanioController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_anio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.anio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_enero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enero}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_febrero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.febrero}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_marzo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.marzo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_abril}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.abril}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_mayo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mayo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_junio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.junio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_julio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.julio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_agosto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.agosto}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_septiembre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.septiembre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_octubre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.octubre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_noviembre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.noviembre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_diciembre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diciembre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_fechaCreacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaCreacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVisitaspormesanioTitle_fechaModificacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaModificacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{visitaspormesanioController.prepareCreate}" update=":VisitaspormesanioCreateForm" oncomplete="PF('VisitaspormesanioCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":VisitaspormesanioViewForm" oncomplete="PF('VisitaspormesanioViewDialog').show()" disabled="#{empty visitaspormesanioController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":VisitaspormesanioEditForm" oncomplete="PF('VisitaspormesanioEditDialog').show()" disabled="#{empty visitaspormesanioController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{visitaspormesanioController.destroy}" update=":growl,datalist" disabled="#{empty visitaspormesanioController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

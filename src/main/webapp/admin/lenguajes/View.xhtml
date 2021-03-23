@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LenguajesViewDlg" widgetVar="LenguajesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewLenguajesTitle}">
+            <h:form id="LenguajesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{lenguajesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewLenguajesLabel_id}"/>
+                        <h:outputText value="#{lenguajesController.selected.id}" title="#{bundle.ViewLenguajesTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewLenguajesLabel_nombre}"/>
+                        <h:outputText value="#{lenguajesController.selected.nombre}" title="#{bundle.ViewLenguajesTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewLenguajesLabel_extension}"/>
+                        <h:outputText value="#{lenguajesController.selected.extension}" title="#{bundle.ViewLenguajesTitle_extension}"/>
+                        <h:outputText value="#{bundle.ViewLenguajesLabel_urldocs}"/>
+                        <h:outputText value="#{lenguajesController.selected.urldocs}" title="#{bundle.ViewLenguajesTitle_urldocs}"/>
+                        <h:outputText value="#{bundle.ViewLenguajesLabel_urllogo}"/>
+                        <h:outputText value="#{lenguajesController.selected.urllogo}" title="#{bundle.ViewLenguajesTitle_urllogo}"/>
+                        <h:outputText value="#{bundle.ViewLenguajesLabel_numerofavoritos}"/>
+                        <h:outputText value="#{lenguajesController.selected.numerofavoritos}" title="#{bundle.ViewLenguajesTitle_numerofavoritos}"/>
+                        <h:outputText value="#{bundle.ViewLenguajesLabel_fechaCreacion}"/>
+                        <h:outputText value="#{lenguajesController.selected.fechaCreacion}" title="#{bundle.ViewLenguajesTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewLenguajesLabel_fechaModificacion}"/>
+                        <h:outputText value="#{lenguajesController.selected.fechaModificacion}" title="#{bundle.ViewLenguajesTitle_fechaModificacion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="LenguajesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

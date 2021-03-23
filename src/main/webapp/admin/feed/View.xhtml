@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FeedViewDlg" widgetVar="FeedViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFeedTitle}">
+            <h:form id="FeedViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{feedController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFeedLabel_id}"/>
+                        <h:outputText value="#{feedController.selected.id}" title="#{bundle.ViewFeedTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewFeedLabel_titulo}"/>
+                        <h:outputText value="#{feedController.selected.titulo}" title="#{bundle.ViewFeedTitle_titulo}"/>
+                        <h:outputText value="#{bundle.ViewFeedLabel_informacion}"/>
+                        <h:outputText value="#{feedController.selected.informacion}" title="#{bundle.ViewFeedTitle_informacion}"/>
+                        <h:outputText value="#{bundle.ViewFeedLabel_imagenurl}"/>
+                        <h:outputText value="#{feedController.selected.imagenurl}" title="#{bundle.ViewFeedTitle_imagenurl}"/>
+                        <h:outputText value="#{bundle.ViewFeedLabel_fechaCreacion}"/>
+                        <h:outputText value="#{feedController.selected.fechaCreacion}" title="#{bundle.ViewFeedTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFeedLabel_fechaModificacion}"/>
+                        <h:outputText value="#{feedController.selected.fechaModificacion}" title="#{bundle.ViewFeedTitle_fechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFeedLabel_usuarios}"/>
+                        <h:outputText value="#{feedController.selected.usuarios}" title="#{bundle.ViewFeedTitle_usuarios}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FeedViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

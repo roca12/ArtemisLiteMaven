@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RangosCreateDlg" widgetVar="RangosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateRangosTitle}">
+            <h:form id="RangosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{rangosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateRangosLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{rangosController.selected.id}" title="#{bundle.CreateRangosTitle_id}" required="true" requiredMessage="#{bundle.CreateRangosRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateRangosLabel_acronimo}" for="acronimo" />
+                        <p:inputText id="acronimo" value="#{rangosController.selected.acronimo}" title="#{bundle.CreateRangosTitle_acronimo}" required="true" requiredMessage="#{bundle.CreateRangosRequiredMessage_acronimo}"/>
+                        <p:outputLabel value="#{bundle.CreateRangosLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{rangosController.selected.nombre}" title="#{bundle.CreateRangosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateRangosRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateRangosLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{rangosController.selected.fechaCreacion}" title="#{bundle.EditRangosTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateRangosLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{rangosController.selected.fechaModificacion}" title="#{bundle.EditRangosTitle_fechaModificacion}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{rangosController.create}" value="#{bundle.Save}" update="display,:RangosListForm:datalist,:growl" oncomplete="handleSubmit(args,'RangosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RangosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

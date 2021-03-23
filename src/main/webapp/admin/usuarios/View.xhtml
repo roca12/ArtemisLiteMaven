@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsuariosViewDlg" widgetVar="UsuariosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUsuariosTitle}">
+            <h:form id="UsuariosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{usuariosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_id}"/>
+                        <h:outputText value="#{usuariosController.selected.id}" title="#{bundle.ViewUsuariosTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_username}"/>
+                        <h:outputText value="#{usuariosController.selected.username}" title="#{bundle.ViewUsuariosTitle_username}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_password}"/>
+                        <h:outputText value="#{usuariosController.selected.password}" title="#{bundle.ViewUsuariosTitle_password}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_nombres}"/>
+                        <h:outputText value="#{usuariosController.selected.nombres}" title="#{bundle.ViewUsuariosTitle_nombres}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_apellidos}"/>
+                        <h:outputText value="#{usuariosController.selected.apellidos}" title="#{bundle.ViewUsuariosTitle_apellidos}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_correo}"/>
+                        <h:outputText value="#{usuariosController.selected.correo}" title="#{bundle.ViewUsuariosTitle_correo}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_semestre}"/>
+                        <h:outputText value="#{usuariosController.selected.semestre}" title="#{bundle.ViewUsuariosTitle_semestre}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_carrera}"/>
+                        <h:outputText value="#{usuariosController.selected.carrera}" title="#{bundle.ViewUsuariosTitle_carrera}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_uvauser}"/>
+                        <h:outputText value="#{usuariosController.selected.uvauser}" title="#{bundle.ViewUsuariosTitle_uvauser}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_codechefuser}"/>
+                        <h:outputText value="#{usuariosController.selected.codechefuser}" title="#{bundle.ViewUsuariosTitle_codechefuser}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_codeforcesuser}"/>
+                        <h:outputText value="#{usuariosController.selected.codeforcesuser}" title="#{bundle.ViewUsuariosTitle_codeforcesuser}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_spojuser}"/>
+                        <h:outputText value="#{usuariosController.selected.spojuser}" title="#{bundle.ViewUsuariosTitle_spojuser}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_biografia}"/>
+                        <h:outputText value="#{usuariosController.selected.biografia}" title="#{bundle.ViewUsuariosTitle_biografia}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_lenguajepeferido}"/>
+                        <h:outputText value="#{usuariosController.selected.lenguajepeferido}" title="#{bundle.ViewUsuariosTitle_lenguajepeferido}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_fechaCreacion}"/>
+                        <h:outputText value="#{usuariosController.selected.fechaCreacion}" title="#{bundle.ViewUsuariosTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_fechaModificacion}"/>
+                        <h:outputText value="#{usuariosController.selected.fechaModificacion}" title="#{bundle.ViewUsuariosTitle_fechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_ciudades}"/>
+                        <h:outputText value="#{usuariosController.selected.ciudades}" title="#{bundle.ViewUsuariosTitle_ciudades}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_paises}"/>
+                        <h:outputText value="#{usuariosController.selected.paises}" title="#{bundle.ViewUsuariosTitle_paises}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_rangos}"/>
+                        <h:outputText value="#{usuariosController.selected.rangos}" title="#{bundle.ViewUsuariosTitle_rangos}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_universidades}"/>
+                        <h:outputText value="#{usuariosController.selected.universidades}" title="#{bundle.ViewUsuariosTitle_universidades}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UsuariosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

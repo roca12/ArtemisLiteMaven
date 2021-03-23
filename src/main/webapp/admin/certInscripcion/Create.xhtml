@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CertInscripcionCreateDlg" widgetVar="CertInscripcionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCertInscripcionTitle}">
+            <h:form id="CertInscripcionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{certInscripcionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCertInscripcionLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{certInscripcionController.selected.id}" title="#{bundle.CreateCertInscripcionTitle_id}" required="true" requiredMessage="#{bundle.CreateCertInscripcionRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateCertInscripcionLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{certInscripcionController.selected.nombres}" title="#{bundle.CreateCertInscripcionTitle_nombres}" />
+                        <p:outputLabel value="#{bundle.CreateCertInscripcionLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{certInscripcionController.selected.apellidos}" title="#{bundle.CreateCertInscripcionTitle_apellidos}" />
+                        <p:outputLabel value="#{bundle.CreateCertInscripcionLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{certInscripcionController.selected.fecha}" title="#{bundle.EditCertInscripcionTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCertInscripcionLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{certInscripcionController.selected.fechaCreacion}" title="#{bundle.EditCertInscripcionTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCertInscripcionLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{certInscripcionController.selected.fechaModificacion}" title="#{bundle.EditCertInscripcionTitle_fechaModificacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCertInscripcionLabel_universidades}" for="universidades" />
+                        <p:selectOneMenu id="universidades" value="#{certInscripcionController.selected.universidades}" >
+                            <f:selectItems value="#{universidadesController.itemsAvailableSelectOne}"
+                                           var="universidadesItem"
+                                           itemValue="#{universidadesItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{certInscripcionController.create}" value="#{bundle.Save}" update="display,:CertInscripcionListForm:datalist,:growl" oncomplete="handleSubmit(args,'CertInscripcionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CertInscripcionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

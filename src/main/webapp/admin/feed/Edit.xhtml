@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FeedEditDlg" widgetVar="FeedEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditFeedTitle}">
+            <h:form id="FeedEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{feedController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditFeedLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{feedController.selected.id}" title="#{bundle.EditFeedTitle_id}" required="true" requiredMessage="#{bundle.EditFeedRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditFeedLabel_titulo}" for="titulo" />
+                        <p:inputText id="titulo" value="#{feedController.selected.titulo}" title="#{bundle.EditFeedTitle_titulo}" />
+                        <p:outputLabel value="#{bundle.EditFeedLabel_informacion}" for="informacion" />
+                        <p:inputText id="informacion" value="#{feedController.selected.informacion}" title="#{bundle.EditFeedTitle_informacion}" />
+                        <p:outputLabel value="#{bundle.EditFeedLabel_imagenurl}" for="imagenurl" />
+                        <p:inputText id="imagenurl" value="#{feedController.selected.imagenurl}" title="#{bundle.EditFeedTitle_imagenurl}" />
+                        <p:outputLabel value="#{bundle.EditFeedLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{feedController.selected.fechaCreacion}" title="#{bundle.EditFeedTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFeedLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{feedController.selected.fechaModificacion}" title="#{bundle.EditFeedTitle_fechaModificacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFeedLabel_usuarios}" for="usuarios" />
+                        <p:selectOneMenu id="usuarios" value="#{feedController.selected.usuarios}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"
+                                           var="usuariosItem"
+                                           itemValue="#{usuariosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{feedController.update}" value="#{bundle.Save}" update="display,:FeedListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FeedEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FeedEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

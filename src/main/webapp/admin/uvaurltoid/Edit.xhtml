@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UvaurltoidEditDlg" widgetVar="UvaurltoidEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditUvaurltoidTitle}">
+            <h:form id="UvaurltoidEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{uvaurltoidController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditUvaurltoidLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{uvaurltoidController.selected.id}" title="#{bundle.EditUvaurltoidTitle_id}" required="true" requiredMessage="#{bundle.EditUvaurltoidRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditUvaurltoidLabel_urlid}" for="urlid" />
+                        <p:inputText id="urlid" value="#{uvaurltoidController.selected.urlid}" title="#{bundle.EditUvaurltoidTitle_urlid}" />
+                        <p:outputLabel value="#{bundle.EditUvaurltoidLabel_problemid}" for="problemid" />
+                        <p:inputText id="problemid" value="#{uvaurltoidController.selected.problemid}" title="#{bundle.EditUvaurltoidTitle_problemid}" />
+                        <p:outputLabel value="#{bundle.EditUvaurltoidLabel_problemname}" for="problemname" />
+                        <p:inputText id="problemname" value="#{uvaurltoidController.selected.problemname}" title="#{bundle.EditUvaurltoidTitle_problemname}" />
+                        <p:outputLabel value="#{bundle.EditUvaurltoidLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{uvaurltoidController.selected.fechaCreacion}" title="#{bundle.EditUvaurltoidTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditUvaurltoidLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{uvaurltoidController.selected.fechaModificacion}" title="#{bundle.EditUvaurltoidTitle_fechaModificacion}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{uvaurltoidController.update}" value="#{bundle.Save}" update="display,:UvaurltoidListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UvaurltoidEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UvaurltoidEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
