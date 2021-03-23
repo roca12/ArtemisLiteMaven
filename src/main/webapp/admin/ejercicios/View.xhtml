@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EjerciciosViewDlg" widgetVar="EjerciciosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEjerciciosTitle}">
+            <h:form id="EjerciciosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ejerciciosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_id}"/>
+                        <h:outputText value="#{ejerciciosController.selected.id}" title="#{bundle.ViewEjerciciosTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_titulo}"/>
+                        <h:outputText value="#{ejerciciosController.selected.titulo}" title="#{bundle.ViewEjerciciosTitle_titulo}"/>
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_juez}"/>
+                        <h:outputText value="#{ejerciciosController.selected.juez}" title="#{bundle.ViewEjerciciosTitle_juez}"/>
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_alias}"/>
+                        <h:outputText value="#{ejerciciosController.selected.alias}" title="#{bundle.ViewEjerciciosTitle_alias}"/>
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_dificultad}"/>
+                        <h:outputText value="#{ejerciciosController.selected.dificultad}" title="#{bundle.ViewEjerciciosTitle_dificultad}"/>
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_tema1}"/>
+                        <h:outputText value="#{ejerciciosController.selected.tema1}" title="#{bundle.ViewEjerciciosTitle_tema1}"/>
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_tema2}"/>
+                        <h:outputText value="#{ejerciciosController.selected.tema2}" title="#{bundle.ViewEjerciciosTitle_tema2}"/>
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_tema3}"/>
+                        <h:outputText value="#{ejerciciosController.selected.tema3}" title="#{bundle.ViewEjerciciosTitle_tema3}"/>
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_tema4}"/>
+                        <h:outputText value="#{ejerciciosController.selected.tema4}" title="#{bundle.ViewEjerciciosTitle_tema4}"/>
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_url}"/>
+                        <h:outputText value="#{ejerciciosController.selected.url}" title="#{bundle.ViewEjerciciosTitle_url}"/>
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_fechaCreacion}"/>
+                        <h:outputText value="#{ejerciciosController.selected.fechaCreacion}" title="#{bundle.ViewEjerciciosTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEjerciciosLabel_fechaModificacion}"/>
+                        <h:outputText value="#{ejerciciosController.selected.fechaModificacion}" title="#{bundle.ViewEjerciciosTitle_fechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="EjerciciosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

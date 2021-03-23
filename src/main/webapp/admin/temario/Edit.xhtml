@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TemarioEditDlg" widgetVar="TemarioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTemarioTitle}">
+            <h:form id="TemarioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{temarioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{temarioController.selected.id}" title="#{bundle.EditTemarioTitle_id}" required="true" requiredMessage="#{bundle.EditTemarioRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_supergrupo}" for="supergrupo" />
+                        <p:inputText id="supergrupo" value="#{temarioController.selected.supergrupo}" title="#{bundle.EditTemarioTitle_supergrupo}" required="true" requiredMessage="#{bundle.EditTemarioRequiredMessage_supergrupo}"/>
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_tema}" for="tema" />
+                        <p:inputText id="tema" value="#{temarioController.selected.tema}" title="#{bundle.EditTemarioTitle_tema}" required="true" requiredMessage="#{bundle.EditTemarioRequiredMessage_tema}"/>
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_texto}" for="texto" />
+                        <p:inputTextarea rows="4" cols="30" id="texto" value="#{temarioController.selected.texto}" title="#{bundle.EditTemarioTitle_texto}" />
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_complejidadTiempo}" for="complejidadTiempo" />
+                        <p:inputText id="complejidadTiempo" value="#{temarioController.selected.complejidadTiempo}" title="#{bundle.EditTemarioTitle_complejidadTiempo}" />
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_java}" for="java" />
+                        <p:inputTextarea rows="4" cols="30" id="java" value="#{temarioController.selected.java}" title="#{bundle.EditTemarioTitle_java}" />
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_cpp}" for="cpp" />
+                        <p:inputTextarea rows="4" cols="30" id="cpp" value="#{temarioController.selected.cpp}" title="#{bundle.EditTemarioTitle_cpp}" />
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_py}" for="py" />
+                        <p:inputTextarea rows="4" cols="30" id="py" value="#{temarioController.selected.py}" title="#{bundle.EditTemarioTitle_py}" />
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_orden}" for="orden" />
+                        <p:inputText id="orden" value="#{temarioController.selected.orden}" title="#{bundle.EditTemarioTitle_orden}" />
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_suborden}" for="suborden" />
+                        <p:inputText id="suborden" value="#{temarioController.selected.suborden}" title="#{bundle.EditTemarioTitle_suborden}" />
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{temarioController.selected.fechaCreacion}" title="#{bundle.EditTemarioTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditTemarioLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{temarioController.selected.fechaModificacion}" title="#{bundle.EditTemarioTitle_fechaModificacion}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{temarioController.update}" value="#{bundle.Save}" update="display,:TemarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TemarioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TemarioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

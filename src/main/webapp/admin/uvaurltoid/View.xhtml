@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UvaurltoidViewDlg" widgetVar="UvaurltoidViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUvaurltoidTitle}">
+            <h:form id="UvaurltoidViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{uvaurltoidController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUvaurltoidLabel_id}"/>
+                        <h:outputText value="#{uvaurltoidController.selected.id}" title="#{bundle.ViewUvaurltoidTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewUvaurltoidLabel_urlid}"/>
+                        <h:outputText value="#{uvaurltoidController.selected.urlid}" title="#{bundle.ViewUvaurltoidTitle_urlid}"/>
+                        <h:outputText value="#{bundle.ViewUvaurltoidLabel_problemid}"/>
+                        <h:outputText value="#{uvaurltoidController.selected.problemid}" title="#{bundle.ViewUvaurltoidTitle_problemid}"/>
+                        <h:outputText value="#{bundle.ViewUvaurltoidLabel_problemname}"/>
+                        <h:outputText value="#{uvaurltoidController.selected.problemname}" title="#{bundle.ViewUvaurltoidTitle_problemname}"/>
+                        <h:outputText value="#{bundle.ViewUvaurltoidLabel_fechaCreacion}"/>
+                        <h:outputText value="#{uvaurltoidController.selected.fechaCreacion}" title="#{bundle.ViewUvaurltoidTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewUvaurltoidLabel_fechaModificacion}"/>
+                        <h:outputText value="#{uvaurltoidController.selected.fechaModificacion}" title="#{bundle.ViewUvaurltoidTitle_fechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UvaurltoidViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EnviosuvaEditDlg" widgetVar="EnviosuvaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEnviosuvaTitle}">
+            <h:form id="EnviosuvaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{enviosuvaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEnviosuvaLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{enviosuvaController.selected.id}" title="#{bundle.EditEnviosuvaTitle_id}" required="true" requiredMessage="#{bundle.EditEnviosuvaRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditEnviosuvaLabel_ejercicio}" for="ejercicio" />
+                        <p:inputText id="ejercicio" value="#{enviosuvaController.selected.ejercicio}" title="#{bundle.EditEnviosuvaTitle_ejercicio}" />
+                        <p:outputLabel value="#{bundle.EditEnviosuvaLabel_codigo}" for="codigo" />
+                        <p:inputTextarea rows="4" cols="30" id="codigo" value="#{enviosuvaController.selected.codigo}" title="#{bundle.EditEnviosuvaTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.EditEnviosuvaLabel_submissionid}" for="submissionid" />
+                        <p:inputText id="submissionid" value="#{enviosuvaController.selected.submissionid}" title="#{bundle.EditEnviosuvaTitle_submissionid}" />
+                        <p:outputLabel value="#{bundle.EditEnviosuvaLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{enviosuvaController.selected.fechaCreacion}" title="#{bundle.EditEnviosuvaTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEnviosuvaLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{enviosuvaController.selected.fechaModificacion}" title="#{bundle.EditEnviosuvaTitle_fechaModificacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEnviosuvaLabel_lenguajes}" for="lenguajes" />
+                        <p:selectOneMenu id="lenguajes" value="#{enviosuvaController.selected.lenguajes}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{lenguajesController.itemsAvailableSelectOne}"
+                                           var="lenguajesItem"
+                                           itemValue="#{lenguajesItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEnviosuvaLabel_usuarios}" for="usuarios" />
+                        <p:selectOneMenu id="usuarios" value="#{enviosuvaController.selected.usuarios}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"
+                                           var="usuariosItem"
+                                           itemValue="#{usuariosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{enviosuvaController.update}" value="#{bundle.Save}" update="display,:EnviosuvaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EnviosuvaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EnviosuvaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ComentariosEditDlg" widgetVar="ComentariosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditComentariosTitle}">
+            <h:form id="ComentariosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{comentariosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditComentariosLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{comentariosController.selected.id}" title="#{bundle.EditComentariosTitle_id}" required="true" requiredMessage="#{bundle.EditComentariosRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditComentariosLabel_texto}" for="texto" />
+                        <p:inputTextarea rows="4" cols="30" id="texto" value="#{comentariosController.selected.texto}" title="#{bundle.EditComentariosTitle_texto}" />
+                        <p:outputLabel value="#{bundle.EditComentariosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{comentariosController.selected.fecha}" title="#{bundle.EditComentariosTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditComentariosLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{comentariosController.selected.fechaCreacion}" title="#{bundle.EditComentariosTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditComentariosLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{comentariosController.selected.fechaModificacion}" title="#{bundle.EditComentariosTitle_fechaModificacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditComentariosLabel_usuarios}" for="usuarios" />
+                        <p:selectOneMenu id="usuarios" value="#{comentariosController.selected.usuarios}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"
+                                           var="usuariosItem"
+                                           itemValue="#{usuariosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{comentariosController.update}" value="#{bundle.Save}" update="display,:ComentariosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ComentariosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ComentariosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
